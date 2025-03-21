@@ -1,19 +1,14 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const compat = new FlatCompat();
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "plugin:@typescript-eslint/recommended"), // ✅ Added TypeScript support
+export default [
+  ...compat.extends("next/core-web-vitals", "plugin:@typescript-eslint/recommended"),
   {
-    ignores: ["node_modules", ".next", "out", "dist"], // ✅ Ignore build folders
-    plugins: ["@typescript-eslint"], // ✅ Explicitly add the TypeScript plugin
+    ignores: ["node_modules", ".next", "out", "dist"],
+    plugins: {
+      "@typescript-eslint": require("@typescript-eslint/eslint-plugin"),
+    },
     rules: {
       "react/no-unescaped-entities": "off",
       "no-console": "warn",
@@ -22,5 +17,3 @@ const eslintConfig = [
     },
   },
 ];
-
-export default eslintConfig;

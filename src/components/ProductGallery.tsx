@@ -26,7 +26,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ products }) => {
                 ))}
             </div>
             <div className='bg-[#FFF9E5]'>
-                <Image src={products.gallery[0]} alt={products.name} width={400} height={400} className='object-contain' />
+                <Image src={products.gallery[0]} alt={products.name} width={400} height={400} className='object-contain' unoptimized />
             </div>
         </div>
     );

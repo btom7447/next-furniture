@@ -16,7 +16,7 @@ const NewArrivals = () => {
             </Link>
         </div>
         <div>
-            <Image src={newArrivalImage} alt='Image of Asgard sofa' width={700} height={300} className='object-contain'  />
+            <Image src={newArrivalImage} alt='Image of Asgard sofa' width={700} height={300} className='object-contain' unoptimized />
         </div>
     </section>
   )
