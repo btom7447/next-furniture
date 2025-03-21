@@ -9,19 +9,9 @@ interface ProductDetailsProps {
   params: { id: string };
 }
 
-// interface Product {
-//   name: string;
-//   image: string;
-//   description: string;
-//   price: number;
-//   gallery: string[];
-//   reviews: number,
-//   reviewers: number,
-// }
+export default async function ProductDetails({ params}: ProductDetailsProps) {
 
-const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }: {params: { id: string }}) => {
   const product = await getProductDetails(params.id);
-
 
   if (!product) {
     return <NoProduct />;
@@ -35,5 +25,3 @@ const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }: {params
     </div>
   );
 };
-
-export default ProductDetails;
