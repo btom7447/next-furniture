@@ -25,7 +25,7 @@ const Header = () => {
             }`}
         >
             <Link href="/">
-                <Image src="/images/logo.png" alt="Furniture store logo" width={50} height={50} className="object-contain" />
+                <Image src="/images/logo.png" alt="Furniture store logo" width={50} height={50} className="object-contain" unoptimized />
             </Link>
 
             {/* Desktop Navigation */}

@@ -14,7 +14,7 @@ const HeroSection = () => {
             </Link>
         </div>
         <div>
-            <Image src="/images/hero-section-image.png" alt='Image of Rocket single seater' width={400} height={300} className='object-contain'  />
+            <Image src="/images/hero-section-image.png" alt='Image of Rocket single seater' width={400} height={300} className='object-contain' unoptimized  />
         </div>
     </section>
   )
