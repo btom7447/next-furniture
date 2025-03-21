@@ -19,7 +19,6 @@ interface TopPickCarouselProps {
     products: Product[];
 }
 
-// ✅ Corrected typing for Splide options
 const carouselOptions: Partial<Options> = {
     type: "loop",
     perPage: 4,
@@ -30,8 +29,8 @@ const carouselOptions: Partial<Options> = {
     pagination: false,
     speed: 800,
     breakpoints: {
-        1024: { perPage: 2 },
-        768: { perPage: 1 },
+        768: { perPage: 3 },
+        600: { perPage: 1 },
     },
 };
 
