@@ -205,20 +205,20 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
             </section>
             {/* More Details */}
             <section className='py-5 flex flex-col space-y-5'>
-                <h6 className='flex flex-wrap text-gray-500 text-xl'>
-                    <span className='w-[80px]'>
+                <h6 className='flex flex-wrap text-gray-500 text-md md:text-xl'>
+                    <span className='w-[90px]'>
                         SKU
                     </span>
                     : {products.sku}
                 </h6>
-                <h6 className='flex capitalize text-gray-500 text-xl'>
-                    <span className='w-[80px]'>
+                <h6 className='flex capitalize text-gray-500 text-md md:text-xl'>
+                    <span className='w-[90px]'>
                         Category
                     </span>
                     : {products.category}
                 </h6>
-                <h6 className='flex capitalize text-gray-500 text-xl'>
-                    <span className='w-[80px]'>
+                <h6 className='flex capitalize text-gray-500 text-md md:text-xl'>
+                    <span className='w-[90px]'>
                         Tags
                     </span>
                     : {products.tags.join(', ')}

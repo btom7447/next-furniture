@@ -29,7 +29,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ products }) => {
             <nav className="py-3 flex items-center justify-start md:justify-center space-x-8 overflow-x-auto whitespace-nowrap">
                 <button
                     onClick={() => setActiveTab('description')}
-                    className={`relative md:text-3xl text-black hover:text-gray-900 transition-colors duration-300 ${
+                    className={`relative text-2xl md:text-3xl text-black hover:text-gray-900 transition-colors duration-300 ${
                         activeTab === 'description' ? 'font-medium' : 'text-gray-500'
                     }`}
                 >
@@ -42,7 +42,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ products }) => {
                 </button>
                 <button
                     onClick={() => setActiveTab('additional')}
-                    className={`relative md:text-3xl text-black hover:text-gray-900 transition-colors duration-300 ${
+                    className={`relative text-2xl md:text-3xl text-black hover:text-gray-900 transition-colors duration-300 ${
                         activeTab === 'additional' ? 'font-medium' : 'text-gray-500'
                     }`}
                 >
@@ -55,7 +55,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ products }) => {
                 </button>
                 <button
                     onClick={() => setActiveTab('reviews')}
-                    className={`relative md:text-3xl text-black hover:text-gray-900 transition-colors duration-300 ${
+                    className={`relative text-2xl md:text-3xl text-black hover:text-gray-900 transition-colors duration-300 ${
                         activeTab === 'reviews' ? 'font-medium' : 'text-gray-500'
                     }`}
                 >
