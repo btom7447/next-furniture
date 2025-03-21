@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
                 <div className=''>
                     <h6 className='mb-10 text-xl text-gray-600'>Newsletter</h6>
-                    <form action="" className='flex justify-start items-center gap-5'>
+                    <form action="" className='flex flex-wrap justify-start items-center gap-5'>
                         <input 
                             type="text" 
                             name="email" 

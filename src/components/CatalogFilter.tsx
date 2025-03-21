@@ -25,7 +25,7 @@ const CatalogFilter: React.FC<CatalogFilterProps> = ({
 
   return (
     <section className="mt-10 p-10 bg-[#fff4f4] flex flex-col md:flex-row justify-between items-center gap-x-20 gap-y-10">
-      <div className="flex items-center space-x-7">
+      <div className="flex flex-wrap items-center space-x-7">
         <button type="button" className="flex items-center gap-3 text-black text-xl">
           <SlidersHorizontal size={25} />
           Filter
@@ -61,7 +61,7 @@ const CatalogFilter: React.FC<CatalogFilterProps> = ({
           className="bg-white w-25 p-3 text-gray-700 text-xl"
           onChange={handleShowChange}
         />
-        <h5 className="text-black text-xl">Sort by</h5>
+        <h5 className="text-black text-xl">Sort</h5>
         <input
           type="text"
           name="sort"
