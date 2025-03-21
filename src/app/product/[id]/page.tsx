@@ -1,15 +1,20 @@
 import React from "react";
-import { getProductDetails } from "@/lib/airtable"; 
+import { getProductDetails } from "@/lib/airtable";
 import NoProduct from "@/components/NoProduct";
 import ProductBreadCrumb from "@/components/ProductBreadCrumb";
 import ProductHeader from "@/components/ProductHeader";
 import ProductDetailTabs from "@/components/ProductDetailTabs";
 
 interface ProductDetailsProps {
-  params: { id: string };
+  params: { id: string }; // Ensure `params` is a plain object
+  searchParams?: Record<string, string | string[]>; // Required for Next.js 15
 }
 
-export default async function ProductDetails({ params}: ProductDetailsProps) {
+export default async function ProductDetails({ params }: ProductDetailsProps) {
+  // Ensure params.id is used correctly
+  if (!params?.id) {
+    return <NoProduct />;
+  }
 
   const product = await getProductDetails(params.id);
 
@@ -24,4 +29,4 @@ export default async function ProductDetails({ params}: ProductDetailsProps) {
       <ProductDetailTabs products={product} />
     </div>
   );
-};
+}
