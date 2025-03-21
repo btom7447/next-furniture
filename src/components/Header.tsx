@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import logo from "../../public/images/logo.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import HamburgerMenu from "./HamburgerMenu";
 import NavButtons from "./NavButtons";
 

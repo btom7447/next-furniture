@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Star, StarHalf, StarOff, Minus, Plus, Heart } from 'lucide-react';
+import { Star, StarHalf, StarOff } from 'lucide-react';
 
 interface Product {
     id: string;

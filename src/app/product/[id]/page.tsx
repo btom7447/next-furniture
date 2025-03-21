@@ -22,7 +22,6 @@ interface ProductDetailsProps {
 const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }) => {
   const product = await getProductDetails(params.id);
 
-  console.log('Product Object:', product);
 
   if (!product) {
     return <NoProduct />;
@@ -33,7 +32,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }) => {
       <ProductBreadCrumb name={product.name} />
       <ProductHeader products={product} />
       <ProductDetailTabs products={product} />
-
     </div>
   );
 };
