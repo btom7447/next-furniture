@@ -24,7 +24,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ products }) => {
     const [activeTab, setActiveTab] = useState<'description' | 'additional' | 'reviews'>('description');
 
     return (
-        <section className="mt-10 border-t-1 border-gray-500">
+        <section className="pt-10 mt-10 border-t-1 border-gray-300">
             {/* Tab Buttons */}
             <nav className="flex items-center justify-center space-x-8">
                 <button
