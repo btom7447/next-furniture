@@ -1,16 +1,14 @@
 import BreadCrumb from '@/components/BreadCrumb';
 import { getAllProducts } from '@/lib/airtable';
-import ProductCatalog from '@/components/ProductCatalog';
+import ShopClient from '@/components/ShopClient';
 
-const Shop = async () => {
+export default async function Shop() {
   const products = await getAllProducts();
 
   return (
     <>
       <BreadCrumb title="Shop" />
-      <ProductCatalog products={products} /> 
+      <ShopClient products={products} />
     </>
   );
-};
-
-export default Shop;
+}

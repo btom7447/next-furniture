@@ -26,7 +26,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ products }) => {
     return (
         <section className="pt-10 mt-10 border-t-1 border-gray-300">
             {/* Tab Buttons */}
-            <nav className="flex items-center justify-center space-x-8">
+            <nav className="py-3 flex items-center justify-start md:justify-center space-x-8 overflow-x-auto whitespace-nowrap">
                 <button
                     onClick={() => setActiveTab('description')}
                     className={`relative text-[16px] text-black hover:text-gray-900 transition-colors duration-300 ${

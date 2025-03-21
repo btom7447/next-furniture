@@ -11,12 +11,12 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
             } transition-transform duration-300 md:hidden`}
         >
             {/* Close Button */}
-            <button className="absolute top-5 right-5" onClick={() => setIsOpen(false)}>
+            <button className="absolute top-10 right-5" onClick={() => setIsOpen(false)}>
                 <X size={24} />
             </button>
 
             {/* Mobile Navigation Links */}
-            <nav className="flex flex-col items-center mt-20 space-y-8">
+            <nav className="flex flex-col items-center mt-30 space-y-8">
                 <Link
                     href="/"
                     className="relative text-[16px] text-black hover:text-gray-900 transition-colors duration-300"

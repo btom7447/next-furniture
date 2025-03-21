@@ -3,7 +3,7 @@ import Airtable from 'airtable';
 // Initialize Airtable with custom configuration
 Airtable.configure({
   endpointUrl: 'https://api.airtable.com',
-  apiKey: process.env.AIRTABLE_API_KEY, // Use environment variable for API key
+  apiKey: process.env.AIRTABLE_API_KEY, 
 });
 
 // Initialize the base
