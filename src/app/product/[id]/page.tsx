@@ -5,12 +5,11 @@ import ProductBreadCrumb from "@/components/ProductBreadCrumb";
 import ProductHeader from "@/components/ProductHeader";
 import ProductDetailTabs from "@/components/ProductDetailTabs";
 
-interface ProductDetailsProps {
-  params: { id: string }; // Ensure `params` is a plain object
-  searchParams?: Record<string, string | string[]>; // Required for Next.js 15
-}
-
-export default async function ProductDetails({ params }: { params: { id: string } }) {
+export default async function ProductDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
   // Ensure params.id is used correctly
   if (!params?.id) {
     return <NoProduct />;
