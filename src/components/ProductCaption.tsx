@@ -137,7 +137,7 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
                 </h6>
             </div>
             <div className="mt-5">
-                <p className="block text-black text-xl text-justify">
+                <p className="block text-black text-xl text-left md:text-justify">
                     {products.description.split('|')[0]}
                 </p>
             </div>

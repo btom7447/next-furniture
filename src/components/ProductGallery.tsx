@@ -20,12 +20,12 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ products }) => {
             <div className="flex flex-wrap gap-5 content-stretch md:flex-col">
                 {products.gallery.slice(1).map((url, index) => (
                     <div className='bg-[#FFF9E5]'>
-                        <img key={index} src={url} alt={`${products.name} ${index + 1}`} className='w-[150px] h-[150px] object-cover' />
+                        <img key={index} src={url} alt={`${products.name} ${index + 1}`} className='w-[150px] h-[150px] object-contain' />
                     </div>
                 ))}
             </div>
             <div className='bg-[#FFF9E5]'>
-                <img src={products.gallery[0]} alt={products.name} className='' />
+                <img src={products.gallery[0]} alt={products.name} className='object-contain md:w-[400px]' />
             </div>
         </div>
     )

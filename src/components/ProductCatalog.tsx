@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import BounceLoader from "react-spinners/BounceLoader";
 import ProductCard from "@/components/ProductCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Product {
     id: string;
@@ -54,13 +55,13 @@ const ProductCatalog = ({ products, layout, visibleProducts }: { products: Produ
                         />
                     ))}
                 </div>
-                <div className="flex justify-center items-center space-x-4 my-10">
+                <div className="flex justify-center items-center space-x-10 p-10 bg-white">
                     <button
                         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
-                        className="px-4 py-2 bg-gray-200 text-black rounded-lg disabled:opacity-50"
+                        className="px-4 py-2 bg-[#FBEBB5] text-black text-xl rounded-lg cursor-pointer disabled:bg-[#FFF9E5] disabled:cursor-not-allowed"
                     >
-                        Previous
+                        <ChevronLeft size={25}  />
                     </button>
                     <span className="text-black text-xl">
                         Page {currentPage} of {totalPages}
@@ -68,9 +69,9 @@ const ProductCatalog = ({ products, layout, visibleProducts }: { products: Produ
                     <button
                         onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
-                        className="px-4 py-2 bg-gray-200 text-black rounded-lg disabled:opacity-50"
+                        className="px-4 py-2 bg-[#FBEBB5] text-black text-xl rounded-lg cursor-pointer disabled:bg-[#FFF9E5] disabled:cursor-not-allowed"
                     >
-                        Next
+                        <ChevronRight size={25} />
                     </button>
                 </div>
             </>

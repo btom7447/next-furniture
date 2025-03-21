@@ -10,6 +10,8 @@ interface Product {
     name: string;
     image: string;
     price: number;
+    layout: string;
+    description: string;
 }
 
 interface TopPickCarouselProps {
@@ -40,7 +42,7 @@ const TopPickCarousel: React.FC<TopPickCarouselProps> = ({ products }) => {
             <Splide options={carouselOptions} className="px-4">
                 {products.map(({ id, image, name, price }) => (
                 <SplideSlide key={id}>
-                    <ProductCard image={image} name={name} price={price} id={id} />
+                    <ProductCard image={image} name={name} price={price} id={id} description='' layout="grid" />
                 </SplideSlide>
                 ))}
             </Splide>
