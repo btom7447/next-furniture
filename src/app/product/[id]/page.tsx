@@ -9,15 +9,15 @@ interface ProductDetailsProps {
   params: { id: string };
 }
 
-interface Product {
-  name: string;
-  image: string;
-  description: string;
-  price: number;
-  gallery: string[];
-  reviews: number,
-  reviewers: number,
-}
+// interface Product {
+//   name: string;
+//   image: string;
+//   description: string;
+//   price: number;
+//   gallery: string[];
+//   reviews: number,
+//   reviewers: number,
+// }
 
 const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }) => {
   const product = await getProductDetails(params.id);

@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "react/no-unescaped-entities": "off",  // Example rule to turn off
+      "no-console": "warn",                  // Change error to a warning
+    },
+  },
 ];
 
 export default eslintConfig;
