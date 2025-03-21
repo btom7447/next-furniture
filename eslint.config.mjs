@@ -10,28 +10,16 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals"), // ❌ Removed "next/typescript"
   {
-    ignores: ["node_modules", ".next", "out"], // Ignore unnecessary directories
+    ignores: ["node_modules", ".next", "out", "dist"], // ✅ Ignore build folders
     rules: {
-      "react/no-unescaped-entities": "off", // Allow unescaped entities
-      "no-console": "warn", // Show console warnings but don't break build
-      "no-unused-vars": "warn", // Prevent unused variables from breaking build
-      "@typescript-eslint/no-explicit-any": "warn", // Allow 'any' but warn
+      "react/no-unescaped-entities": "off",
+      "no-console": "warn",
+      "no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
 ];
-
-// Disable ESLint checks if NEXT_DISABLE_ESLINT is set
-if (process.env.NEXT_DISABLE_ESLINT === "1") {
-  eslintConfig.push({
-    rules: {
-      "react/no-unescaped-entities": "off",
-      "no-console": "off",
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  });
-}
 
 export default eslintConfig;
