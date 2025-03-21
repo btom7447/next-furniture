@@ -64,7 +64,7 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
         // Check if the product is already in the cart
-        const existingProductIndex = cart.findIndex((item: any) => item.id === id);
+        const existingProductIndex = cart.findIndex((item: { id: string }) => item.id === id);
 
         if (existingProductIndex !== -1) {
             // Update quantity if the product is already in the cart
@@ -97,7 +97,7 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
 
     // Function to handle "Save" button click
     const handleSave = () => {
-        const savedItems = JSON.parse(localStorage.getItem('saved') || '[]');
+        const savedItems: Product[] = JSON.parse(localStorage.getItem('saved') || '[]');
 
         if (isSaved) {
             // Remove the product from the saved list

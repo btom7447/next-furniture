@@ -59,7 +59,7 @@ export async function getProductDetails(id: string): Promise<Product | null> {
 
     return product;
   } catch (error) {
-    console.error("Error fetching product details:", error);
+    // console.error("Error fetching product details:", error);
     return null;
   }
 }
@@ -95,7 +95,7 @@ export async function getAllProducts(): Promise<Product[]> {
       };
     });
   } catch (error) {
-    console.error('Error fetching all products:', error);
+    // console.error('Error fetching all products:', error);
     return [];
   }
 }
