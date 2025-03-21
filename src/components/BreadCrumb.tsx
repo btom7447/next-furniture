@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from '../../public/images/logo.png';
 import breadcrumbImage from '../../public/images/breadcrumb-image.png';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
@@ -16,7 +15,7 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ title }) => {
         style={{ backgroundImage: `url(${breadcrumbImage.src})` }}
     >
         <Image 
-            src={logo}
+            src="/images/logo.png"
             alt='logo of next furniture'
             width={50}
             height={50}

@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "../../public/images/logo.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
@@ -26,7 +25,7 @@ const Header = () => {
             }`}
         >
             <Link href="/">
-                <Image src={logo} alt="Furniture store logo" width={50} height={50} className="object-contain" />
+                <Image src="/images/logo.png" alt="Furniture store logo" width={50} height={50} className="object-contain" />
             </Link>
 
             {/* Desktop Navigation */}

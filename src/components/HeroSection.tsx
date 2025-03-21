@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import heroImage from '../../public/images/hero-section-image.png';
 import Link from 'next/link';
 
 const HeroSection = () => {
@@ -15,7 +14,7 @@ const HeroSection = () => {
             </Link>
         </div>
         <div>
-            <Image src={heroImage} alt='Image of Rocket single seater' width={400} height={300} className='object-contain'  />
+            <Image src="images/hero-section-image.png" alt='Image of Rocket single seater' width={400} height={300} className='object-contain'  />
         </div>
     </section>
   )
