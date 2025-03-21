@@ -21,7 +21,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ products }) => {
             <div className="flex flex-wrap gap-5 content-stretch md:flex-col">
                 {products.gallery.slice(1).map((url, index) => (
                     <div key={index} className='bg-[#FFF9E5]'>
-                        <Image src={url} alt={`${products.name} ${index + 1}`} width={150} height={150} className='object-contain' />
+                        <Image src={url} alt={`${products.name} ${index + 1}`} width={150} height={150} className='w-30 h-30 md:w-60 md:h-60 object-contain' />
                     </div>
                 ))}
             </div>

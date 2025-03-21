@@ -42,7 +42,7 @@ const ProductCatalog = ({ products, layout, visibleProducts }: { products: Produ
                 </div>
             ) : (
             <>
-                <div className={`py-20 px-10 ${layout === 'grid' ? 'md:px-40 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4' : 'md:px-70  grid grid-cols-1'} gap-10 bg-white`}>
+                <div className={`py-20 px-5 ${layout === 'grid' ? 'md:px-40 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4' : 'md:px-70  grid grid-cols-1'} gap-10 bg-white`}>
                     {paginatedProducts.map((product) => (
                         <ProductCard
                             key={product.id}

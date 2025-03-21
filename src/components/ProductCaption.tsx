@@ -120,7 +120,7 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
             <h4 className="text-xl font-light text-gray-700 mt-2">Rs. {products.price.toLocaleString()}</h4>
 
             {/* Reviews and HR */}
-            <div className="flex items-center justify-start space-x-5 mt-4">
+            <div className="flex flex-wrap items-center justify-center md:justify-start space-x-5 space-y-3 mt-4">
                 {/* Star Ratings */}
                 <div className="flex items-center space-x-2">
                     {Array.from({ length: fullStars }).map((_, index) => (
@@ -131,13 +131,13 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
                         <StarOff key={`empty-${index}`} size={25} className="text-gray-300" fill="currentColor" />
                     ))}
                 </div>
-                <hr className="w-0 h-10 bg-transparent border-r-2 border-gray-500" />
+                <hr className="hidden md:block w-0 h-10 bg-transparent border-r-2 border-gray-500" />
                 <h6 className="capitalize text-lg text-gray-700">
                     {products.reviewers} Customer Review{products.reviewers !== 1 ? 's' : ''}
                 </h6>
             </div>
             <div className="mt-5">
-                <p className="block text-black text-xl text-left md:text-justify">
+                <p className="block text-black text-md md:text-xl text-left md:text-justify">
                     {products.description.split('|')[0]}
                 </p>
             </div>
@@ -205,7 +205,7 @@ const ProductCaption: React.FC<ProductCaptionProps> = ({ products }) => {
             </section>
             {/* More Details */}
             <section className='py-5 flex flex-col space-y-5'>
-                <h6 className='flex text-gray-500 text-xl'>
+                <h6 className='flex flex-wrap text-gray-500 text-xl'>
                     <span className='w-[80px]'>
                         SKU
                     </span>
