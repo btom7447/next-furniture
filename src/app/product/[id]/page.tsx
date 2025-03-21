@@ -10,7 +10,7 @@ interface ProductDetailsProps {
   searchParams?: Record<string, string | string[]>; // Required for Next.js 15
 }
 
-export default async function ProductDetails({ params }: ProductDetailsProps) {
+export default async function ProductDetails({ params }: { params: { id: string } }) {
   // Ensure params.id is used correctly
   if (!params?.id) {
     return <NoProduct />;

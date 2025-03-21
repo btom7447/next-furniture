@@ -34,14 +34,13 @@ export async function getProductDetails(id: string): Promise<Product | null> {
     }
 
     const gallery = record.fields.image && Array.isArray(record.fields.image)
-        ? record.fields.image.map((img: { url: string }) => img.url)
+      ? record.fields.image.map((img: { url: string }) => img.url)
       : [];
 
     // Ensure tags is an array of strings
-    const tags =
-      record.fields.tags && Array.isArray(record.fields.tags)
-        ? record.fields.tags
-        : [];
+    const tags = record.fields.tags && Array.isArray(record.fields.tags)
+      ? record.fields.tags
+      : [];
 
     const product: Product = {
       id: record.id, // Airtable's record ID
@@ -58,8 +57,10 @@ export async function getProductDetails(id: string): Promise<Product | null> {
     };
 
     return product;
-  } catch (error) {
-    // console.error("Error fetching product details:", error);
+  } catch (err) {
+    if (process.env.NODE_ENV === 'development') {
+      console.error("Error fetching product details:", err);
+    }
     return null;
   }
 }
@@ -72,11 +73,10 @@ export async function getAllProducts(): Promise<Product[]> {
     return records.map((record) => {
       const gallery = record.fields.image && Array.isArray(record.fields.image)
         ? record.fields.image.map((img: { url: string }) => img.url)
-      : [];
+        : [];
 
       // Ensure tags is an array of strings
-      const tags =
-      record.fields.tags && Array.isArray(record.fields.tags)
+      const tags = record.fields.tags && Array.isArray(record.fields.tags)
         ? record.fields.tags
         : [];
 
@@ -94,8 +94,10 @@ export async function getAllProducts(): Promise<Product[]> {
         tags: tags,
       };
     });
-  } catch (error) {
-    // console.error('Error fetching all products:', error);
+  } catch (err) {
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error fetching all products:', err);
+    }
     return [];
   }
 }

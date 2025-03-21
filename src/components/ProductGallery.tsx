@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
 
 interface Product {
     name: string;
@@ -19,16 +20,16 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ products }) => {
         <div className='flex-1 flex flex-col-reverse gap-5 items-start justify-start md:flex md:flex-row'>
             <div className="flex flex-wrap gap-5 content-stretch md:flex-col">
                 {products.gallery.slice(1).map((url, index) => (
-                    <div key={index} className='bg-[#FFF9E5]'>  
-                        <img src={url} alt={`${products.name} ${index + 1}`} className='w-[150px] h-[150px] object-contain' />
+                    <div key={index} className='bg-[#FFF9E5]'>
+                        <Image src={url} alt={`${products.name} ${index + 1}`} width={150} height={150} className='object-contain' />
                     </div>
                 ))}
             </div>
             <div className='bg-[#FFF9E5]'>
-                <img src={products.gallery[0]} alt={products.name} className='object-contain md:w-[400px]' />
+                <Image src={products.gallery[0]} alt={products.name} width={400} height={400} className='object-contain' />
             </div>
         </div>
-    )
+    );
 }
 
-export default ProductGallery
+export default ProductGallery;
