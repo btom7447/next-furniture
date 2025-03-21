@@ -10,9 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"), // ❌ Removed "next/typescript"
+  ...compat.extends("next/core-web-vitals", "plugin:@typescript-eslint/recommended"), // ✅ Added TypeScript support
   {
     ignores: ["node_modules", ".next", "out", "dist"], // ✅ Ignore build folders
+    plugins: ["@typescript-eslint"], // ✅ Explicitly add the TypeScript plugin
     rules: {
       "react/no-unescaped-entities": "off",
       "no-console": "warn",
