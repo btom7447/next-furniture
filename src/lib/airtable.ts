@@ -34,7 +34,7 @@ export async function getProductDetails(id: string): Promise<Product | null> {
     }
 
     const gallery = record.fields.image && Array.isArray(record.fields.image)
-        ? record.fields.image.map((img: any) => img.url)
+        ? record.fields.image.map((img: { url: string }) => img.url)
       : [];
 
     // Ensure tags is an array of strings
@@ -70,10 +70,9 @@ export async function getAllProducts(): Promise<Product[]> {
     const records = await base('Products').select().all();
 
     return records.map((record) => {
-      const gallery =
-        record.fields.image && Array.isArray(record.fields.image)
-          ? record.fields.image.map((img: any) => img.url) 
-          : [];
+      const gallery = record.fields.image && Array.isArray(record.fields.image)
+        ? record.fields.image.map((img: { url: string }) => img.url)
+      : [];
 
       // Ensure tags is an array of strings
       const tags =

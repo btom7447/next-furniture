@@ -2,7 +2,7 @@ import { LayoutGrid, LayoutList, SlidersHorizontal } from 'lucide-react';
 import React from 'react';
 
 interface CatalogFilterProps {
-  products: any[];
+  products: string[];
   onShowChange: (value: number) => void;
   onLayoutChange: (layout: 'grid' | 'list') => void;
   currentLayout: 'grid' | 'list';
