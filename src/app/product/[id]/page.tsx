@@ -19,7 +19,7 @@ interface ProductDetailsProps {
 //   reviewers: number,
 // }
 
-const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }) => {
+const ProductDetails: React.FC<ProductDetailsProps> = async ({ params }: {params: { id: string }}) => {
   const product = await getProductDetails(params.id);
 
 
