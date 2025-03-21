@@ -7,7 +7,7 @@ export default [
   {
     ignores: ["node_modules", ".next", "out", "dist"],
     plugins: {
-      "@typescript-eslint": require("@typescript-eslint/eslint-plugin"),
+      "@typescript-eslint": await import("@typescript-eslint/eslint-plugin"),
     },
     rules: {
       "react/no-unescaped-entities": "off",
