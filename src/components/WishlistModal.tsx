@@ -76,7 +76,7 @@ const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> =
         </div>
 
         {/* Navigation Buttons */}
-        <nav className="w-full p-10 flex justify-end border-t-1 border-gray-300">
+        <nav className="w-full py-5 px-5 md:p-10 flex justify-end border-t-1 border-gray-300">
           <button
             onClick={handleAddAllToCart}
             className="py-3 px-7 md:px-10 text-xl rounded-2xl md:rounded-4xl border-1 border-black bg-white text-black hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer"
