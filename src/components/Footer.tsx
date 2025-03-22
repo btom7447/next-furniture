@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className='p-10 md:p-20 bg-white flex flex-col justify-center items-center'>
             <div className='w-full grid justify-start items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-10'>
                 <div className='self-center'>
-                    <h6 className='text-xl text-gray-600'>400 University Drive Suite 200 Carol Gabies, FL 33134, USA</h6>
+                    <h6 className='text-lg md:text-xl text-gray-600'>400 University Drive Suite 200 Carol Gabies, FL 33134, USA</h6>
                 </div>
                 <div className='flex flex-col justify-start items-start'>
                     <h6 className='mb-10 text-xl text-gray-600'>Links</h6>
@@ -42,7 +42,7 @@ const Footer = () => {
                 </div>
             </div>
             <hr className='block m-10 w-full border-b-0 border-gray-400' />
-            <p className='text-gray-600'>&copy; {new Date().getFullYear()} Meubel House. All rights reserved.</p>
+            <p className='text-sm md:text-lg text-gray-600'>&copy; {new Date().getFullYear()} Meubel House. All rights reserved.</p>
         </footer>
     )
 }
