@@ -62,14 +62,14 @@ const CartModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> = ({ 
             <Link
               href="/cart"
               onClick={onRequestClose}
-              className="relative py-3 px-4 md:px-10 text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
+              className="relative py-3 px-4 md:px-10 text-lg md:text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
             >
               View Cart
             </Link>
             <Link
               href="/checkout"
               onClick={onRequestClose}
-              className="relative py-3 px-4 md:px-10 text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
+              className="relative py-3 px-4 md:px-10 text-lg md:text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
             >
               Checkout
             </Link>

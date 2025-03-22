@@ -16,10 +16,10 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
             </button>
 
             {/* Mobile Navigation Links */}
-            <nav className="flex flex-col items-center mt-30 space-y-8">
+            <nav className="flex flex-col items-center mt-30 space-y-10">
                 <Link
                     href="/"
-                    className="relative text-2xl text-black hover:text-gray-900 transition-colors duration-300"
+                    className="relative text-xl text-black hover:text-gray-900 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                 >
                     Home
@@ -31,7 +31,7 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
                 </Link>
                 <Link
                     href="/shop"
-                    className="relative font-poppins text-2xl text-black hover:text-gray-900 transition-colors duration-300"
+                    className="relative font-poppins text-xl text-black hover:text-gray-900 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                 >       
                     Shop
@@ -43,7 +43,7 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
                 </Link>
                 <Link
                     href="/about"
-                    className="relative text-2xl text-black hover:text-gray-900 transition-colors duration-300"
+                    className="relative text-xl text-black hover:text-gray-900 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                 >
                     About
@@ -55,7 +55,7 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
                 </Link>
                 <Link
                     href="/contact"
-                    className="relative text-2xl text-black hover:text-gray-900 transition-colors duration-300"
+                    className="relative text-xl text-black hover:text-gray-900 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                 >
                     Contact
