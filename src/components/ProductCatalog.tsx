@@ -55,7 +55,7 @@ const ProductCatalog = ({ products, layout, visibleProducts }: { products: Produ
                         />
                     ))}
                 </div>
-                <div className="flex justify-center items-center space-x-10 p-10 bg-white">
+                <div className="flex justify-center items-center space-x-10 p-10 pb-30 bg-white">
                     <button
                         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}

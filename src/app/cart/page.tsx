@@ -1,8 +1,16 @@
+import BreadCrumb from '@/components/BreadCrumb'
+import CartCatalog from '@/components/CartCatalog'
+import TrustBadge from '@/components/TrustBadge'
 import React from 'react'
 
-const Cart = () => {
+const Cart
+ = () => {
   return (
-    <div>Cart</div>
+    <>
+      <BreadCrumb title="Cart" />
+      <CartCatalog />
+      <TrustBadge />
+    </>
   )
 }
 

@@ -28,9 +28,10 @@
   background-color: #FBEBB5;
   color: #FFF;
 }
-/* ::-webkit-scrollbar {
-  width: 4px;
-} */
+::-webkit-scrollbar {
+  width: 1px !important;
+  height: 1px !important;
+}
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
   background: #c9c9c9;

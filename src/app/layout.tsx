@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../styles/globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import RootLayoutClient from "@/components/RootLayoutClient";
+import { ShopProvider } from "../components/ShopContext";
 
 const PoppinsSans = Poppins({
   variable: "--font-Poppins-sans",
@@ -24,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${PoppinsSans.variable} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+        <ShopProvider>
+          <RootLayoutClient>
+            {children}
+          </RootLayoutClient>
+        </ShopProvider>
       </body>
     </html>
   );
