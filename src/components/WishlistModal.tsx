@@ -26,7 +26,7 @@ const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> =
       onRequestClose={onRequestClose}
       contentLabel="Wishlist Modal"
       ariaHideApp={false}
-      className="fixed top-0 right-0 bg-white shadow-lg w-[80dvw] md:w-120 z-500"
+      className="fixed top-0 right-0 bg-white shadow-lg w-[85dvw] md:w-120 z-500"
       overlayClassName="fixed inset-0 bg-[#1A1A1A3D] z-1000 flex items-start justify-end p-5 pointer-events-auto"
     >
       <div className="pointer-events-auto flex flex-col justify-between items-start">
@@ -36,30 +36,30 @@ const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> =
         </button>
 
         {/* Wishlist Header */}
-        <h2 className="m-10 text-2xl md:text-3xl font-bold mb-5 border-gray-300 border-b-1 pb-7 w-[80%]">
+        <h2 className="my-10 mx-5 md:m-10 text-2xl md:text-3xl font-bold mb-5 border-gray-300 border-b-1 pb-7 w-[80%]">
           Your Wishlist
         </h2>
 
         {/* Wishlist Items */}
-        <div className="p-10 w-full h-[300px] flex flex-col overflow-y-auto">
+        <div className="p-5 md:p-10 w-full h-[300px] flex flex-col overflow-y-auto">
           {wishlistItems.length === 0 ? (
-            <p className="text-gray-600 m-20">Your wishlist is empty.</p>
+            <p className="text-gray-600 m-20 text-center">Your wishlist is empty.</p>
           ) : (
             <ul className="space-y-2">
               {wishlistItems.map((item) => (
-                <li key={item.id} className="relative flex gap-3 justify-start items-center pr-5">
+                <li key={item.id} className="relative flex gap-3 justify-start items-center pr-8">
                   {/* Product Image */}
                   <Image
                     src={item.image}
                     alt={item.name}
                     width={100}
                     height={100}
-                    className="bg-[#FFF9E5] w-25 h-25 rounded-2xl object-contain"
+                    className="bg-[#FFF9E5] w-15 h-15 md:w-25 md:h-25 rounded-2xl object-contain"
                     unoptimized
                   />
                   {/* Product Details */}
                   <div className="flex flex-col items-start">
-                    <h5 className="text-xl font-semibold text-black capitalize">{item.name}</h5>
+                    <h5 className="text-md md:text-xl font-semibold text-black capitalize">{item.name}</h5>
                     <p className="text-md text-gray-700">Rs. {item.price.toLocaleString()}</p>
                   </div>
                   {/* Remove Button */}

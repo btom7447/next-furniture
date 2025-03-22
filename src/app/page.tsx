@@ -2,6 +2,7 @@ import FollowUs from '@/components/FollowUs';
 import HeroSection from '@/components/HeroSection';
 import NewArrivals from '@/components/NewArrivals';
 import TopPicks from '@/components/TopPicks';
+import TrustBadge from '@/components/TrustBadge';
 import React from 'react'
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <TopPicks />
       <NewArrivals />
       <FollowUs />
+      <TrustBadge />
     </div>
   )
 }
