@@ -17,9 +17,9 @@ const CartCatalog = () => {
                     <thead>
                         <tr className="bg-[#FBEBB5]">
                             <th className="min-w-20"></th>
-                            <th className="p-5 text-black text-lg md:text-xl font-semibold whitespace-nowrap">Product</th>
-                            <th className="p-5 text-black text-lg md:text-xl font-semibold whitespace-nowrap">Quantity</th>
-                            <th className="p-5 text-black text-lg md:text-xl font-semibold whitespace-nowrap">Price</th>
+                            <th className="p-5 text-black text-lg md:text-xl font-semibold text-left md:text-center whitespace-nowrap">Product</th>
+                            <th className="p-5 text-black text-lg md:text-xl font-semibold text-left md:text-center whitespace-nowrap">Quantity</th>
+                            <th className="p-5 text-black text-lg md:text-xl font-semibold text-left md:text-center whitespace-nowrap">Price</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -37,9 +37,9 @@ const CartCatalog = () => {
                                             unoptimized 
                                         />
                                     </td>
-                                    <td className="text-gray-700 text-lg md:text-xl text-center">{item.name}</td>
-                                    <td className="text-gray-700 text-lg md:text-xl text-center">{item.quantity}</td>
-                                    <td className="text-black text-lg md:text-xl text-center font-semibold">
+                                    <td className="text-gray-700 text-lg md:text-xl text-left md:text-center">{item.name}</td>
+                                    <td className="text-gray-700 text-lg md:text-xl text-left md:text-center">{item.quantity}</td>
+                                    <td className="text-black text-lg md:text-xl text-left md:text-center font-semibold">
                                         Rs.{item.price.toLocaleString()}
                                     </td>
                                     <td className="p-3">
