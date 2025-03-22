@@ -17,9 +17,9 @@ const CartCatalog = () => {
                     <thead>
                         <tr className="bg-[#FBEBB5]">
                             <th className="min-w-20"></th>
-                            <th className="p-5 text-black text-xl font-semibold whitespace-nowrap">Product</th>
-                            <th className="p-5 text-black text-xl font-semibold whitespace-nowrap">Quantity</th>
-                            <th className="p-5 text-black text-xl font-semibold whitespace-nowrap">Price</th>
+                            <th className="p-5 text-black text-lg md:text-xl font-semibold whitespace-nowrap">Product</th>
+                            <th className="p-5 text-black text-lg md:text-xl font-semibold whitespace-nowrap">Quantity</th>
+                            <th className="p-5 text-black text-lg md:text-xl font-semibold whitespace-nowrap">Price</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -33,13 +33,13 @@ const CartCatalog = () => {
                                             alt={item.name} 
                                             width={100} 
                                             height={100} 
-                                            className="bg-[#FBEBB5] rounded-2xl w-36 h-25 object-contain" 
+                                            className="bg-[#FBEBB5] rounded-2xl w-30 h-22 md:w-36 md:h-25 object-contain" 
                                             unoptimized 
                                         />
                                     </td>
-                                    <td className="text-gray-700 text-xl text-center">{item.name}</td>
-                                    <td className="text-gray-700 text-xl text-center">{item.quantity}</td>
-                                    <td className="text-black text-xl text-center font-semibold">
+                                    <td className="text-gray-700 text-lg md:text-xl text-center">{item.name}</td>
+                                    <td className="text-gray-700 text-lg md:text-xl text-center">{item.quantity}</td>
+                                    <td className="text-black text-lg md:text-xl text-center font-semibold">
                                         Rs.{item.price.toLocaleString()}
                                     </td>
                                     <td className="p-3">
@@ -54,7 +54,7 @@ const CartCatalog = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={5} className="p-20 text-left md:text-center text-gray-500 text-xl">
+                                <td colSpan={5} className="p-20 text-left md:text-center text-gray-500 text-lg md:text-xl">
                                     No items added to cart
                                 </td>
                             </tr>
@@ -78,13 +78,13 @@ const CartCatalog = () => {
                 </div>
                 <div className="w-full flex justify-between items-center mb-4">
                     <strong className="text-black">Total</strong>
-                    <p className="text-xl text-[#6b5a22] font-bold">
+                    <p className="text-lg md:text-xl text-[#6b5a22] font-bold">
                         Rs. {calculateSubtotal().toLocaleString()}
                     </p>
                 </div>
                 <Link
                     href="/checkout"
-                    className="mt-5 border-gray-black border-1 bg-transparent rounded-2xl py-4 px-10 text-xl font-light text-black hover:bg-black hover:text-white transition-colors duration-300"
+                    className="mt-5 border-gray-black border-1 bg-transparent rounded-2xl py-4 px-10 text-lg md:text-xl font-light text-black hover:bg-black hover:text-white transition-colors duration-300"
                 >
                     Check Out
                 </Link>
