@@ -22,7 +22,7 @@ interface ProductHeaderProps {
 
 const ProductHeader: React.FC<ProductHeaderProps> = ({ products }) => {
   return (
-    <div className='mt-20 flex flex-col lg:flex-row gap-10 md:gap-30'>
+    <div className='mt-10 md:mt-20 flex flex-col lg:flex-row gap-10 md:gap-30'>
       <ProductGallery products={products} /> 
       <ProductCaption products={products} />
     </div>

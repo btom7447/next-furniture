@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section
-      className="px-10 md:px-20 py-30 h-fit flex flex-col-reverse md:flex-row md:min-h-screen justify-center items-center gap-10"
+      className="px-5 md:px-20 py-30 h-fit flex flex-col-reverse md:flex-row md:min-h-screen justify-center items-center gap-10"
       style={{ background: "#FFF9E5" }}
     >
       {/* Left Content (Heading & Button with staggered animation) */}
@@ -28,7 +28,7 @@ const HeroSection = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }} // Delayed by 1 second
         >
-          <Link href="/shop" className="text-2xl mt-10 block">
+          <Link href="/shop" className="text-lg md:text-2xl mt-10 block">
             <button className="py-2 border-b border-black cursor-pointer">
               Shop Now
             </button>
