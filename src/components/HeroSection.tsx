@@ -7,14 +7,14 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section
-      className="px-20 py-30 h-fit flex flex-col-reverse md:flex-row md:min-h-screen justify-center items-center gap-10"
+      className="px-10 md:px-20 py-30 h-fit flex flex-col-reverse md:flex-row md:min-h-screen justify-center items-center gap-10"
       style={{ background: "#FFF9E5" }}
     >
       {/* Left Content (Heading & Button with staggered animation) */}
       <motion.div className="sm:w-auto">
         {/* Heading Animation */}
         <motion.h1
-          className="text-5xl leading-10 text-black md:text-7xl md:leading-25"
+          className="text-5xl leading-12 text-black md:text-7xl md:leading-25"
           initial={{ x: -100, opacity: 0 }} // Start off-screen left
           animate={{ x: 0, opacity: 1 }} // Slide in
           transition={{ duration: 1, ease: "easeOut" }} // Smooth effect
