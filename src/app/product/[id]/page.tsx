@@ -12,7 +12,7 @@ export default async function ProductDetails({ params }: { params?: { id?: strin
   if (!product) return <NoProduct />;
 
   return (
-    <div className="bg-white px-10 py-40 pd-20 md:p-30">
+    <div className="bg-white px-5 py-40 pd-20 md:p-30">
       <ProductBreadCrumb name={product.name} />
       <ProductHeader products={product} />
       <ProductDetailTabs products={product} />

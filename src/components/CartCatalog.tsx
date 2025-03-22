@@ -10,7 +10,7 @@ const CartCatalog = () => {
     const { cartItems, removeFromCart, calculateSubtotal } = useShop(); 
 
     return (
-        <section className="bg-white px-10 py-20 md:p-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <section className="bg-white px-5 py-20 md:p-20 grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Make table horizontally scrollable on small screens */}
             <div className="md:col-span-2 overflow-x-auto">
                 <table className="w-full border-collapse min-w-[600px]">
