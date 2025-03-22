@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import Modal from "react-modal";
 import { useShop } from "./ShopContext";
-import { motion, AnimatePresence } from "framer-motion"; // ✅ Import Framer Motion
+import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 
 const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> = ({
   isOpen,
@@ -12,7 +12,7 @@ const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> =
 }) => {
   const { wishlistItems, removeFromWishlist, addToCart } = useShop(); 
 
-  // ✅ Add all wishlist items to cart & clear wishlist
+  // Add all wishlist items to cart & clear wishlist
   const handleAddAllToCart = () => {
     wishlistItems.forEach((item) => {
       addToCart({ ...item, quantity: 1 }); 
@@ -22,7 +22,7 @@ const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> =
   };
 
   return (
-    <AnimatePresence> {/* ✅ Ensures exit animations run */}
+    <AnimatePresence> {/* Ensures exit animations run */}
       {isOpen && (
         <Modal
           isOpen={isOpen}
@@ -32,13 +32,13 @@ const WishlistModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> =
           className="fixed top-0 right-0 w-[85dvw] md:w-120 z-500"
           overlayClassName="fixed inset-0 bg-[#1A1A1A3D] z-1000 flex items-start justify-end p-5 pointer-events-auto"
         >
-          {/* ✅ Framer Motion: Slide In & Out Animation */}
+          {/* Framer Motion: Slide In & Out Animation */}
           <motion.div
             key="wishlist-modal"
             initial={{ x: "100%", opacity: 0 }} // Start off-screen (right)
             animate={{ x: 0, opacity: 1 }} // Slide in
             exit={{ x: "100%", opacity: 0 }} // Slide out when closing
-            transition={{ duration: 0.5, ease: "easeOut" }} // Smooth effect
+            transition={{ duration: 0.3, ease: "easeOut" }} // Smooth effect
             className="pointer-events-auto flex flex-col justify-between items-start bg-white shadow-lg h-full"
           >
             <button onClick={onRequestClose} className="cursor-pointer fixed top-10 right-10">
