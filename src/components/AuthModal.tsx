@@ -45,12 +45,17 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
                         
                         {isLogin ? <LoginForm onSuccess={handleLoginSuccess} /> : <RegisterForm onSuccess={handleRegisterSuccess} />}
 
-                        <div className="w-full py-5 px-5 md:px-10 border-t-1 border-gray-300 flex items-center space-x-2">
+                        <div className="w-full pt-5 px-5 md:px-10 border-t-1 border-gray-300 flex items-center space-x-2">
                             <p className="text-lg md:text-xl text-black">
                                 {isLogin ? "Don't have an account?" : "Already have an account?"}
                             </p>
                             <button onClick={() => setIsLogin(!isLogin)} className="border-0 text-lg md:text-xl text-[#6b5a22] cursor-pointer">
                                 {isLogin ? "Register" : "Login"}
+                            </button>
+                        </div>
+                        <div className="w-full py-2 px-5 md:px-10 flex items-center space-x-2">
+                            <button onClick={() => setIsLogin(!isLogin)} className="border-0 text-lg md:text-xl text-[#6b5a22] cursor-pointer">
+                                Forgot password?
                             </button>
                         </div>
                     </motion.div>

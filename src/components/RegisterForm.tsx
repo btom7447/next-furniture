@@ -3,12 +3,10 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { useRouter } from "next/navigation";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
     const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,7 +27,7 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
             await createUserWithEmailAndPassword(auth, email, password);
             onSuccess();
         } catch (err) {
-            setError("Failed to create account. Try again.");
+            setError((err as Error).message || "Failed to create account. Try again.");
         }
     };
 
@@ -42,15 +40,6 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
                     type="text" 
                     value={name} 
                     onChange={(e) => setName(e.target.value)} 
-                    className="p-3 border border-gray-300 rounded-2xl"
-                />
-            </label>
-            <label className="mb-5 w-full flex flex-col text-lg text-black">
-                Phone
-                <input 
-                    type="text" 
-                    value={phone} 
-                    onChange={(e) => setPhone(e.target.value)} 
                     className="p-3 border border-gray-300 rounded-2xl"
                 />
             </label>

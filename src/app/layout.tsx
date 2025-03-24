@@ -4,6 +4,8 @@ import "../styles/globals.css";
 import RootLayoutClient from "@/components/RootLayoutClient";
 import { ShopProvider } from "../components/ShopContext";
 import { AuthProvider } from "@/components/AuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PoppinsSans = Poppins({
   variable: "--font-Poppins-sans",
@@ -32,6 +34,7 @@ export default function RootLayout({
             </RootLayoutClient>
           </ShopProvider>
         </AuthProvider>
+        <ToastContainer />
       </body>
     </html>
   );

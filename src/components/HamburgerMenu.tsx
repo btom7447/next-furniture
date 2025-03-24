@@ -7,7 +7,7 @@ import AuthModal from "./AuthModal";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
@@ -101,8 +101,6 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
             </button>
 
             <AuthModal isOpen={isAuthModalOpen} onClose={() => setAuthModalOpen(false)} />
-            {/* Toastify Container */}
-            <ToastContainer />
         </div>
     );
 };

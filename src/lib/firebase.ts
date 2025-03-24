@@ -19,13 +19,4 @@ googleProvider.setCustomParameters({
     prompt: "select_account" // Forces Google to show the account picker
 });
 
-const setupRecaptcha = (id: string) => {
-    return new RecaptchaVerifier(auth, id, {
-        size: "invisible",
-        callback: (response: any) => {
-            console.log("reCAPTCHA solved!", response);
-        },
-    });
-};
-
-export { auth, googleProvider, setupRecaptcha, signInWithPhoneNumber };
+export { auth, googleProvider };
