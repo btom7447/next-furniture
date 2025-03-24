@@ -15,6 +15,9 @@ const auth = getAuth(app);
 auth.useDeviceLanguage(); // Uses user's device language for Firebase prompts
 
 const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+    prompt: "select_account" // Forces Google to show the account picker
+});
 
 const setupRecaptcha = (id: string) => {
     return new RecaptchaVerifier(auth, id, {

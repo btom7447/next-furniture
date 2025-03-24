@@ -100,7 +100,9 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (val
                 {user ? <LogOutIcon size={24} /> : <LogInIcon size={24} />}
             </button>
 
-        <AuthModal isOpen={isAuthModalOpen} onClose={() => setAuthModalOpen(false)} />
+            <AuthModal isOpen={isAuthModalOpen} onClose={() => setAuthModalOpen(false)} />
+            {/* Toastify Container */}
+            <ToastContainer />
         </div>
     );
 };

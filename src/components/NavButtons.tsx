@@ -32,7 +32,7 @@ const NavButtons = () => {
   };
 
   return (
-    <div className="flex align-center justify-center space-x-10">
+    <div className="flex align-center justify-center space-x-7 md:space-x-10">
       <Link href="/account">
         <User size={24} />
       </Link>
