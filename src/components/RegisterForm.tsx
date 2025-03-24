@@ -20,13 +20,13 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
         setError("");
 
         // Only check confirmPassword if showPassword is false (hidden confirm password)
-        if (!showPassword && password !== confirmPassword) {
+        if (!showPassword && password !== confirmPassword) { 
             setError("Passwords do not match.");
             return;
         }
 
         try {
-            await createUserWithEmailAndPassword(auth, email, phone, password);
+            await createUserWithEmailAndPassword(auth, email, password);
             onSuccess();
         } catch (err) {
             setError("Failed to create account. Try again.");
