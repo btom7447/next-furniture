@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "../styles/globals.css";
 import RootLayoutClient from "@/components/RootLayoutClient";
 import { ShopProvider } from "../components/ShopContext";
+import { AuthProvider } from "@/components/AuthContext";
 
 const PoppinsSans = Poppins({
   variable: "--font-Poppins-sans",
@@ -24,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${PoppinsSans.variable} antialiased`}>
-        <ShopProvider>
-          <RootLayoutClient>
-            {children}
-          </RootLayoutClient>
-        </ShopProvider>
+        <AuthProvider>
+          <ShopProvider>
+            <RootLayoutClient>
+              {children}
+            </RootLayoutClient>
+          </ShopProvider>
+        </AuthProvider>
       </body>
     </html>
   );

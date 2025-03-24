@@ -23,7 +23,7 @@ export default function RootLayoutClient({ children }: { children: React.ReactNo
     return (
         <>
             <Header />
-            {children}
+                {children}
             <Footer />
         </>
     );

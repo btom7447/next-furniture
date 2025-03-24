@@ -18,6 +18,9 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+
     return (
         <header
             className={`w-full flex items-center justify-between md:justify-around p-5 fixed top-0 left-0 z-50 transition-all duration-300 ${

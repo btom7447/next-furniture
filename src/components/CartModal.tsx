@@ -5,7 +5,7 @@ import React from "react";
 import Modal from "react-modal";
 import { useShop } from "./ShopContext";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { motion, AnimatePresence } from "framer-motion"; 
 
 const CartModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> = ({ isOpen, onRequestClose }) => {
   const { cartItems, removeFromCart, calculateSubtotal } = useShop(); 
@@ -24,10 +24,10 @@ const CartModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> = ({ 
           {/* Framer Motion: Slide In & Out Animation */}
           <motion.div
             key="cart-modal"
-            initial={{ x: "100%", opacity: 0 }} // Start off-screen (right)
-            animate={{ x: 0, opacity: 1 }} // Slide in
-            exit={{ x: "100%", opacity: 0 }} // Slide out when closing
-            transition={{ duration: 0.3, ease: "easeOut" }} // Smooth effect
+            initial={{ x: "100%", opacity: 0 }} 
+            animate={{ x: 0, opacity: 1 }} 
+            exit={{ x: "100%", opacity: 0 }} 
+            transition={{ duration: 0.3, ease: "easeOut" }} 
             className="pointer-events-auto flex flex-col justify-between items-start bg-white shadow-lg h-full"
           >
             <button onClick={onRequestClose} className="cursor-pointer fixed top-10 right-10">
@@ -76,20 +76,20 @@ const CartModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> = ({ 
             </div>
 
             <nav className="w-full py-5 px-5 md:px-10 flex justify-between items-center md:gap-10 border-t-1 border-gray-300">
-                <Link
-                  href="/cart"
-                  onClick={onRequestClose}
-                  className="relative py-3 px-4 md:px-10 text-lg md:text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
-                >
-                  View Cart
-                </Link>
-                <Link
-                  href="/checkout"
-                  onClick={onRequestClose}
-                  className="relative py-3 px-4 md:px-10 text-lg md:text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
-                >
-                  Checkout
-                </Link>
+              <Link
+                href="/cart"
+                onClick={onRequestClose}
+                className="relative py-3 px-4 md:px-10 text-lg md:text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
+              >
+                View Cart
+              </Link>
+              <Link
+                href="/checkout"
+                onClick={onRequestClose}
+                className="relative py-3 px-4 md:px-10 text-lg md:text-xl rounded-2xl md:rounded-4xl bg-white border-1 border-gray-700 text-black hover:text-white hover:bg-gray-900 transition-colors duration-300"
+              >
+                Checkout
+              </Link>
             </nav>
           </motion.div>
         </Modal>
