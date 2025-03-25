@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { toast } from "react-toastify";
 
 const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
     const [name, setName] = useState("");
@@ -19,7 +20,10 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
 
         // Only check confirmPassword if showPassword is false (hidden confirm password)
         if (!showPassword && password !== confirmPassword) { 
-            setError("Passwords do not match.");
+            toast.error("Passwords do not match.", {
+                position: "top-right",
+                autoClose: 3000,
+            });
             return;
         }
 
@@ -27,8 +31,10 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
             await createUserWithEmailAndPassword(auth, email, password);
             onSuccess();
         } catch (err) {
-            setError((err as Error).message || "Failed to create account. Try again.");
-        }
+            toast.error((err as Error).message || "Failed to create account. Try again.", {
+                position: "top-right",
+                autoClose: 3000,
+            });        }
     };
 
     return (

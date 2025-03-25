@@ -10,21 +10,24 @@ import {
     googleProvider, 
 } from "@/lib/firebase";
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const LoginForm = ({ onSuccess }: { onSuccess: () => void }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError("");
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
             onSuccess();
         } catch (err) {
-            setError((err as Error).message || "Invalid email or password.");
+            toast.error((err as Error).message || "Invalid email or password.", {
+                position: "top-right",
+                autoClose: 3000,
+            });
+           
         }
     };
 
@@ -32,14 +35,16 @@ const LoginForm = ({ onSuccess }: { onSuccess: () => void }) => {
         try {
             await signInWithPopup(auth, googleProvider);
             onSuccess(); // Close modal on success
-        } catch (error) {
-            console.error("Google sign-in error:", error);
+        } catch (err) {
+            toast.error((err as Error).message || "Invalid email or password.", {
+                position: "top-right",
+                autoClose: 3000,
+            });
         }
     };
 
     return (
         <form onSubmit={handleSubmit} className="px-10 py-0 pb-10 w-full h-90 flex flex-col items-start overflow-y-auto">
-            {error && <p className="text-red-500">{error}</p>}
             <label className="mb-5 w-full flex flex-col text-lg text-black">
                 Email
                 <input 
