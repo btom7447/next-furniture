@@ -38,7 +38,7 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="px-10 pb-10 w-full h-90 flex flex-col items-start overflow-y-auto">
+        <form onSubmit={handleSubmit} className="px-5 md:px-10 pb-10 w-full h-90 flex flex-col items-start overflow-y-auto">
             {error && <p className="text-red-500">{error}</p>}
             <label className="mb-5 w-full flex flex-col text-lg text-black">
                 Name

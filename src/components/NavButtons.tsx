@@ -9,6 +9,7 @@ import { useAuth } from "./AuthContext";
 import AuthModal from "./AuthModal"; 
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import SearchModal from "./SearchModal";
 
 const NavButtons = () => {
   const { 
@@ -16,17 +17,16 @@ const NavButtons = () => {
     openWishlist, isWishlistOpen, closeWishlist 
   } = useShop();
 
-  const { user } = useAuth(); // Get user from AuthContext
+  const { user } = useAuth(); 
   const [isAuthModalOpen, setAuthModalOpen] = useState(false);
+  const [isSearchModalOpen, setSearchModalOpen] = useState(false);
 
   const handleAuthClick = () => {
     if (user) {
-      // If logged in, log out
       signOut(auth).then(() => {
-        localStorage.removeItem("isLoggedIn"); // Clear localStorage
+        localStorage.removeItem("isLoggedIn"); 
       }).catch((error) => console.error("Logout Error:", error));
     } else {
-      // If not logged in, open login modal
       setAuthModalOpen(true);
     }
   };
@@ -52,7 +52,7 @@ const NavButtons = () => {
         )}
       </button>
 
-      <button className="cursor-pointer">
+      <button className="cursor-pointer" onClick={() => setSearchModalOpen(true)}>
         <Search size={24} />
       </button>
 
@@ -64,6 +64,7 @@ const NavButtons = () => {
       {/* Modals */}
       <CartModal isOpen={isCartOpen} onRequestClose={closeCart} />
       <WishlistModal isOpen={isWishlistOpen} onRequestClose={closeWishlist} />
+      <SearchModal isOpen={isSearchModalOpen} onRequestClose={() => setSearchModalOpen(false)} />
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setAuthModalOpen(false)} />
     </div>
   );

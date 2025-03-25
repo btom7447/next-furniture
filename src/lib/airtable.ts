@@ -7,7 +7,7 @@ Airtable.configure({
 
 const base = Airtable.base(process.env.AIRTABLE_BASE_ID as string);
 
-interface Product {
+export interface Product {
   id: string;
   name: string;
   description: string;
@@ -21,7 +21,7 @@ interface Product {
   tags: string[];
 }
 
-// ✅ Fix: Ensure `id` is always provided when calling this function
+// Fix: Ensure `id` is always provided when calling this function
 export async function getProductDetails(id: string): Promise<Product | null> {
   if (!id) return null; // Ensure `id` is always valid
 
@@ -54,7 +54,7 @@ export async function getProductDetails(id: string): Promise<Product | null> {
   }
 }
 
-// ✅ Fix: Function to fetch all products for `generateStaticParams`
+// Fix: Function to fetch all products for `generateStaticParams`
 export async function getAllProducts(): Promise<Product[]> {
   try {
     const records = await base("Products").select().all();
