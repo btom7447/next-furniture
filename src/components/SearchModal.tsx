@@ -58,7 +58,7 @@ const SearchModal: React.FC<{ isOpen: boolean; onRequestClose: () => void }> = (
                     <h2 className="my-10 mx-5 md:m-10 text-2xl md:text-3xl font-bold mb-5 border-gray-300 border-b-1 pb-7 w-[80%]">
                         Search Products
                     </h2>
-                    <div className="px-10 w-full">
+                    <div className="px-5 md:px-10 w-full">
                         <input
                             type="text"
                             placeholder="Search products..."
