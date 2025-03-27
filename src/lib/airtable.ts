@@ -23,12 +23,13 @@ export interface Product {
 
 // Fix: Ensure `id` is always provided when calling this function
 export async function getProductDetails(id: string): Promise<Product | null> {
-  if (!id) return null; // Ensure `id` is always valid
+  if (!id) return null; 
 
   try {
     const record = await base("Products").find(id);
     if (!record) return null;
 
+    // Extract fresh URLs from Airtable every time
     const gallery = Array.isArray(record.fields.image)
       ? record.fields.image.map((img: { url: string }) => img.url)
       : [];
@@ -38,7 +39,7 @@ export async function getProductDetails(id: string): Promise<Product | null> {
       name: record.fields.name as string,
       description: record.fields.description as string,
       price: record.fields.price as number,
-      image: gallery[0] || "",
+      image: gallery.length > 0 ? gallery[0] : "/fallback-image.jpg", // Use fallback
       gallery,
       reviews: record.fields.reviews as number,
       reviewers: record.fields.reviewers as number,
@@ -58,21 +59,25 @@ export async function getProductDetails(id: string): Promise<Product | null> {
 export async function getAllProducts(): Promise<Product[]> {
   try {
     const records = await base("Products").select().all();
-    return records.map((record) => ({
-      id: record.id,
-      name: record.fields.name as string,
-      description: record.fields.description as string,
-      price: record.fields.price as number,
-      image: Array.isArray(record.fields.image) ? record.fields.image[0]?.url : "",
-      gallery: Array.isArray(record.fields.image)
+    return records.map((record) => {
+      const gallery = Array.isArray(record.fields.image)
         ? record.fields.image.map((img: { url: string }) => img.url)
-        : [],
-      reviews: record.fields.reviews as number,
-      reviewers: record.fields.reviewers as number,
-      sku: record.fields.sku as string,
-      category: record.fields.category as string,
-      tags: Array.isArray(record.fields.tags) ? record.fields.tags : [],
-    }));
+        : [];
+
+      return {
+        id: record.id,
+        name: record.fields.name as string,
+        description: record.fields.description as string,
+        price: record.fields.price as number,
+        image: gallery.length > 0 ? gallery[0] : "/fallback-image.jpg", // Use fallback
+        gallery,
+        reviews: record.fields.reviews as number,
+        reviewers: record.fields.reviewers as number,
+        sku: record.fields.sku as string,
+        category: record.fields.category as string,
+        tags: Array.isArray(record.fields.tags) ? record.fields.tags : [],
+      };
+    });
   } catch (err) {
     if (process.env.NODE_ENV === "development") {
       console.error("Error fetching all products:", err);

@@ -4,6 +4,8 @@ import { useAuth } from "@/components/AuthContext";
 import { useState, useEffect } from "react";
 import AuthModal from "@/components/AuthModal";
 import BounceLoader from "react-spinners/BounceLoader";
+import BreadCrumb from "@/components/BreadCrumb";
+import CheckoutCatalog from "@/components/CheckoutCatalog";
 
 export default function CheckoutPage() {
   const { user, loading } = useAuth();
@@ -26,7 +28,10 @@ export default function CheckoutPage() {
   return (
     <div>
       {user ? (
-        <div>Checkout</div>
+        <div>
+          <BreadCrumb title="Checkout" />
+          <CheckoutCatalog />
+        </div>
       ) : (
         <AuthModal isOpen={showModal} onClose={() => setShowModal(false)} />
       )}

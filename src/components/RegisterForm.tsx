@@ -12,11 +12,9 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError("");
 
         // Only check confirmPassword if showPassword is false (hidden confirm password)
         if (!showPassword && password !== confirmPassword) { 
@@ -39,7 +37,6 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
 
     return (
         <form onSubmit={handleSubmit} className="px-5 md:px-10 pb-10 w-full h-90 flex flex-col items-start overflow-y-auto">
-            {error && <p className="text-red-500">{error}</p>}
             <label className="mb-5 w-full flex flex-col text-lg text-black">
                 Name
                 <input 
@@ -93,7 +90,7 @@ const RegisterForm = ({ onSuccess }: { onSuccess: () => void }) => {
                 </label>
             )}
 
-            <button type="submit" className="w-full bg-black text-white py-3 px-10 text-lg rounded-2xl hover:bg-white hover:text-black transition cursor-pointer">
+            <button type="submit" className="w-full border-1 border-black bg-black text-white py-3 px-10 text-lg rounded-2xl hover:bg-white hover:text-black transition cursor-pointer">
                 Register
             </button>
         </form>

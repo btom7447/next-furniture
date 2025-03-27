@@ -65,7 +65,7 @@ const LoginForm = ({ onSuccess }: { onSuccess: () => void }) => {
             </label>
             <button 
                 type="submit" 
-                className="w-full bg-black text-white py-3 px-10 text-lg rounded-2xl hover:bg-white hover:text-black transition cursor-pointer"
+                className="w-full bg-black border-black border-1 text-white py-3 px-10 text-lg rounded-2xl hover:bg-white hover:text-black transition cursor-pointer"
             >
                 Login
             </button>
@@ -73,7 +73,7 @@ const LoginForm = ({ onSuccess }: { onSuccess: () => void }) => {
             <div className="w-full flex items-center justify-center mt-10 gap-3">
                 <button 
                     onClick={handleGoogleSignIn} 
-                    className="flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 transition"
+                    className="flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer"
                 >
                     <FaGoogle size={24} strokeWidth={1} />
                     <span>Sign in with Google</span>
