@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../styles/globals.css";
@@ -14,27 +13,28 @@ const PoppinsSans = Poppins({
   weight: "400",
 });
 
+
 export const metadata: Metadata = {
   title: "Next Furniture",
-  description: "A Furniture Store created with Next.js",
+  description: "A Furniture Stored created with Next JS",
 };
-
-const queryClient = new QueryClient();
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body className={`${PoppinsSans.variable} antialiased`}>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <ShopProvider>
-              <RootLayoutClient>{children}</RootLayoutClient>
-            </ShopProvider>
-          </AuthProvider>
-          <ToastContainer />
-        </QueryClientProvider>
+        <AuthProvider>
+          <ShopProvider>
+            <RootLayoutClient>
+              {children}
+            </RootLayoutClient>
+          </ShopProvider>
+        </AuthProvider>
+        <ToastContainer />
       </body>
     </html>
   );
