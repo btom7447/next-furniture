@@ -29,9 +29,9 @@ export async function getProductDetails(id: string): Promise<Product | null> {
     const record = await base("Products").find(id);
     if (!record) return null;
 
-    // Extract fresh URLs from Airtable every time
+    // Append timestamp to avoid expired URLs
     const gallery = Array.isArray(record.fields.image)
-      ? record.fields.image.map((img: { url: string }) => img.url)
+      ? record.fields.image.map((img: { url: string }) => `${img.url}?timestamp=${Date.now()}`)
       : [];
 
     return {
@@ -48,20 +48,20 @@ export async function getProductDetails(id: string): Promise<Product | null> {
       tags: Array.isArray(record.fields.tags) ? record.fields.tags : [],
     };
   } catch (err) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Error fetching product details:", err);
-    }
+    console.error("Error fetching product details:", err);
     return null;
   }
 }
 
-// Fix: Function to fetch all products for `generateStaticParams`
+
 export async function getAllProducts(): Promise<Product[]> {
   try {
     const records = await base("Products").select().all();
+
     return records.map((record) => {
       const gallery = Array.isArray(record.fields.image)
-        ? record.fields.image.map((img: { url: string }) => img.url)
+        ? record.fields.image.map((img: { url: string }) => `${img.url}?timestamp=${Date.now()}`
+        )
         : [];
 
       return {
@@ -69,7 +69,7 @@ export async function getAllProducts(): Promise<Product[]> {
         name: record.fields.name as string,
         description: record.fields.description as string,
         price: record.fields.price as number,
-        image: gallery.length > 0 ? gallery[0] : "/fallback-image.jpg", // Use fallback
+        image: gallery.length > 0 ? gallery[0] : "/fallback-image.jpg",
         gallery,
         reviews: record.fields.reviews as number,
         reviewers: record.fields.reviewers as number,
@@ -79,9 +79,7 @@ export async function getAllProducts(): Promise<Product[]> {
       };
     });
   } catch (err) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Error fetching all products:", err);
-    }
+    console.error("Error fetching all products:", err);
     return [];
   }
 }
