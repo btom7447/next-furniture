@@ -1,8 +1,13 @@
+import BreadCrumb from '@/components/BreadCrumb'
+import GetInTouch from '@/components/GetInTouch'
 import React from 'react'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <BreadCrumb title='Contact' />
+      <GetInTouch />
+    </div>
   )
 }
 

@@ -6,6 +6,7 @@ import { ShopProvider } from "../components/ShopContext";
 import { AuthProvider } from "@/components/AuthContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ProductProvider } from "@/components/ProductContext";
 
 const PoppinsSans = Poppins({
   variable: "--font-Poppins-sans",
@@ -28,11 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${PoppinsSans.variable} antialiased`}>
         <AuthProvider>
-          <ShopProvider>
-            <RootLayoutClient>
-              {children}
-            </RootLayoutClient>
-          </ShopProvider>
+          <ProductProvider>
+            <ShopProvider>
+              <RootLayoutClient>
+                {children}
+              </RootLayoutClient>
+            </ShopProvider>
+          </ProductProvider>
         </AuthProvider>
         <ToastContainer />
       </body>

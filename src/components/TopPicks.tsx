@@ -1,12 +1,19 @@
-import React from "react";
-import { getAllProducts } from "@/lib/airtable";
+"use client";
+
+import React, { useEffect } from "react";
+import { useProductContext } from "@/components/ProductContext";
 import TopPickCarousel from "./TopPickCarousel";
 import Link from "next/link";
 
-const TopPicks = async () => {
-    const products = await getAllProducts();
+const TopPicks = () => {
+    const { products, fetchProducts } = useProductContext();
 
-    const updatedProducts = products.map((product) => ({
+    // Fetch products when the component mounts
+    useEffect(() => {
+        fetchProducts();
+    }, [fetchProducts]);
+
+    const updatedProducts = (products || []).map((product) => ({
         ...product,
         layout: "grid", // Default to "grid" layout
     }));

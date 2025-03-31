@@ -1,8 +1,11 @@
+import BreadCrumb from '@/components/BreadCrumb'
 import React from 'react'
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <BreadCrumb title='About' />
+    </div>
   )
 }
 
