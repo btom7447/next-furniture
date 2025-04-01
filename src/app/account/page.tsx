@@ -1,8 +1,11 @@
+import BreadCrumb from '@/components/BreadCrumb'
 import React from 'react'
 
 const Account = () => {
   return (
-    <div>Account</div>
+    <div>
+      <BreadCrumb title="Account" />
+    </div>
   )
 }
 

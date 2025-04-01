@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useProductContext } from "@/components/ProductContext"; // Import ProductContext
 
 interface CartItem {
   id: string;
@@ -37,19 +38,45 @@ interface ShopContextType {
 const ShopContext = createContext<ShopContextType | undefined>(undefined);
 
 export function ShopProvider({ children }: { children: React.ReactNode }) {
+  const { fetchProductById } = useProductContext(); // Access ProductContext
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
-  // Load cart and wishlist from localStorage only ONCE when app starts
+  // Load cart and wishlist from localStorage and update with up-to-date product data
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const storedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const loadCartItems = async () => {
+      const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const updatedCartItems = await Promise.all(
+        storedCart.map(async (item: CartItem) => {
+          const product = await fetchProductById(item.id);
+          return {
+            ...item,
+            image: product?.image || item.image, // Ensure image is updated from product data
+          };
+        })
+      );
+      setCartItems(updatedCartItems);
+    };
 
-    setCartItems(storedCart);
-    setWishlistItems(storedWishlist);
-  }, []);
+    const loadWishlistItems = async () => {
+      const storedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      const updatedWishlistItems = await Promise.all(
+        storedWishlist.map(async (item: WishlistItem) => {
+          const product = await fetchProductById(item.id);
+          return {
+            ...item,
+            image: product?.image || item.image, // Ensure image is updated from product data
+          };
+        })
+      );
+      setWishlistItems(updatedWishlistItems);
+    };
+
+    loadCartItems();
+    loadWishlistItems();
+  }, [fetchProductById]); // Only run once when the component mounts
 
   // Save cart to localStorage only when it changes
   useEffect(() => {
@@ -89,7 +116,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save after updating state
       return updatedCart;
     });
-  };  
+  };
 
   const removeFromCart = (id: string) => {
     setCartItems((prevItems) => {
@@ -98,7 +125,6 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       return updatedCart;
     });
   };
-  
 
   // Update wishlist dynamically in state
   const addToWishlist = (item: WishlistItem) => {
